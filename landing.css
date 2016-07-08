@@ -1,0 +1,29 @@
+body {
+	padding-top: 150px;
+}
+
+.form-control {
+	outline: none;
+	border: none !important;
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+#add, button {
+	border-color: transparent;
+	background-color: transparent;
+	border-radius: 0 !important;
+}
+
+#add:hover {
+	cursor: pointer;
+}
+
+ul {
+list-style-type: none;
+}
+
+#todos > ul > li {
+	padding: 20px;
+}
