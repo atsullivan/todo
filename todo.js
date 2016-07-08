@@ -40,11 +40,23 @@ function remove() {
     localStorage.setItem('todo', JSON.stringify(todos));
  
     show();
-
     document.getElementById('task').focus();
-
     console.log("Item removed: " + removed_item);
+    return false;
+}
+
+function remove_completed() {
+    var id = this.getAttribute('id');
+    var todos = get_completed_todos();
+    var removed_item = todos[id];
+    console.log(todos);
+    todos.splice(id, 1);
+    console.log(todos);
+    localStorage.setItem('completed_todo', JSON.stringify(todos));
  
+    show();
+    document.getElementById('task').focus();
+    console.log("Completed item removed: " + removed_item);
     return false;
 }
 
@@ -96,6 +108,10 @@ function show() {
     var buttons = document.getElementsByClassName('complete');
     for (var i=0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', complete);
+    };
+    var buttons = document.getElementsByClassName('remove_completed');
+    for (var i=0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', remove_completed);
     };
 }
  
