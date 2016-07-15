@@ -1,5 +1,16 @@
 body {
 	padding-top: 150px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+}
+
+h1 {
+	font-weight: 100;
+}
+
+.container {
+	padding-left: 10vw;
+	padding-right: 10vw;
 }
 
 .form-control {
@@ -24,6 +35,10 @@ ul {
 list-style-type: none;
 }
 
-#todos > ul > li {
-	padding: 20px;
+#todos, #done > ul > li {	
+	font-size: 20px;
+}
+
+#done {
+	text-decoration: line-through;
 }

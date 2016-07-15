@@ -49,9 +49,7 @@ function remove_completed() {
     var id = this.getAttribute('id');
     var todos = get_completed_todos();
     var removed_item = todos[id];
-    console.log(todos);
     todos.splice(id, 1);
-    console.log(todos);
     localStorage.setItem('completed_todo', JSON.stringify(todos));
  
     show();
@@ -95,12 +93,12 @@ function show() {
     var completed_todos = get_completed_todos()
     var html2 = '<ul>';
     for(var i=0; i<completed_todos.length; i++) {
-        html2 += '<li> <button class="remove_completed" id="' + i  + '"><i class="fa fa-times" aria-hidden="true"></i></button> ' + completed_todos[i] + '</li>';
+        html2 += '<li> <button class="remove_completed" id="' + i  + '"><i class="pe-7s-close"></i></button> ' + completed_todos[i] + '</li>';
     };
     html2 += '</ul>';
     document.getElementById('done').innerHTML = html2;
  
-    // COMBINE BELOW 2 FUNCTIONS AND PASS IN REMOVE/COMPLETE
+    // COMBINE BELOW 3 FUNCTIONS AND PASS IN REMOVE/COMPLETE
     var buttons = document.getElementsByClassName('remove');
     for (var i=0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', remove);
@@ -116,4 +114,11 @@ function show() {
 }
  
 document.getElementById('add').addEventListener('click', add);
+document.getElementById("task").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13) {
+        document.getElementById("add").click();
+    }
+});
+
 show();
